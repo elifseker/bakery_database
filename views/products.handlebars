@@ -42,20 +42,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Latte</td>
-            <td>5</td>
-            <td>200</td>
-            <td>Drinks</td>
+          {{#each rows}}
+          <tr data-id="{{this.productID}}">
+            <td>{{this.productID}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.productPrice}}</td>
+            <td>{{this.productCalorie}}</td>
+            <td>{{this.productCategory}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Bagel</td>
-            <td>3</td>
-            <td>100</td>
-            <td>Pastry</td>
-          </tr>
+          {{/each}}
 
         </tbody>
       </table>

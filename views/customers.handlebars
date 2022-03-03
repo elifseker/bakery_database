@@ -48,22 +48,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>000-000 0000</td>
-            <td>markotto@hello.com</td>
-            <td>11111</td>
+          {{#each rows}}
+          <tr data-id="{{this.customerID}}">
+            <td>{{this.customerID}}</td>
+            <td>{{this.customerFName}}</td>
+            <td>{{this.customerLName}}</td>
+            <td>{{this.customerPhone}}</td>
+            <td>{{this.customerEmail}}</td>
+            <td>{{this.customerZIP}}</td>
+            <td><button type="button" class="btn btn-primary">update</button></td>
+            <td><button type="button" class="btn btn-primary">delete</button></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>000-000 0000</td>
-            <td>Jacobthornton@hello.com</td>
-            <td>11111</td>
-          </tr>
+          {{/each}}
 
         </tbody>
       </table>

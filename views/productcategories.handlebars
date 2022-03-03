@@ -29,15 +29,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Drinks</td>
+          {{#each rows}}
+          <tr data-id="{{this.categoryID}}">
+            <td>{{this.categoryID}}</td>
+            <td>{{this.categoryName}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Desserts</td>
-          </tr>
-
+          {{/each}}
         </tbody>
       </table>
     </div>

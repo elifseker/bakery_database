@@ -44,25 +44,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>5</td>
-            <td>3</td>
-            <td>10/10/2022</td>
-            <td>18</td>
-            <td>
-              <a href="./productorders"> <button type="button" class="btn btn-primary">edit products</button></a>
-            </td>
+
+          {{#each rows}}
+          <tr data-id="{{this.orderID}}">
+            <td>{{this.orderID}}</td>
+            <td>{{this.employeeID}}</td>
+            <td>{{this.customerID}}</td>
+            <td>{{this.orderDate}}</td>
+            <td>{{this.orderPrice}}</td>
+            <td><a href="./productorders"><button type="button" class="btn btn-primary">edit products</button></a></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>5</td>
-            <td>23</td>
-            <td>11/11/2022</td>
-            <td>23</td>
-            <td><a href="./productorders"> <button type="button" class="btn btn-primary">edit products</button></a>
-            </td>
-          </tr>
+          {{/each}}
 
         </tbody>
       </table>
