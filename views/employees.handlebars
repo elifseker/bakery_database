@@ -1,0 +1,66 @@
+<div class="jumbotron d-flex align-items-center min-vh-100">
+  <div class="container">
+    Employees...
+    <div class="card">
+      <div class="card-body">
+
+        <form>
+          <h5>Add new employee</h5>
+          <div class="form-group">
+            <label for="employeFName">Employee First Name</label>
+            <input type="text" class="form-control" id="employeeFName" placeholder="Enter first name">
+          </div>
+          <div class="form-group">
+            <label for="employeeLName">Employee Last Name</label>
+            <input type="text" class="form-control" id="employeeLName" placeholder="Enter last name">
+          </div>
+          <div class="form-group">
+            <label for="employeePhone">Employee Phone Number</label>
+            <input type="tel" class="form-control" id="employeePhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+              placeholder="Enter phone number">
+          </div>
+
+          <div class="form-check">
+            <input type="employeeManager" class="form-check-input" id="employeeManager">
+            <label class="form-check-label" for="exampleCheck1">Is Manager?</label>
+          </div>
+
+          <div class="mt-2 col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="mt-2 col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">employeeID</th>
+            <th scope="col">employeeFName</th>
+            <th scope="col">employeeLName</th>
+            <th scope="col">employeePhone</th>
+            <th scope="col">employeeManager</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {{#each rows}}
+          <tr data-id="{{this.employeeID}}">
+            <td>{{this.employeeID}}</td>
+            <td>{{this.employeeFName}}</td>
+            <td>{{this.employeeLName}}</td>
+            <td>{{this.employeePhone}}</td>
+            <td>{{this.employeeManager}}</td>
+            <td><button type="button" class="btn btn-primary">update</button></td>
+            <td><button type="button" class="btn btn-primary">delete</button></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
