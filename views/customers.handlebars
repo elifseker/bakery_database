@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-body">
 
-        <form>
+        <form id="customerForm">
           <h5>Add new customer</h5>
           <div class="form-group">
             <label for="customerFName">Customer First Name</label>
@@ -16,8 +16,7 @@
           </div>
           <div class="form-group">
             <label for="customerPhone">Customer Phone Number</label>
-            <input type="tel" class="form-control" id="employeePhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
-              placeholder="Enter phone number">
+            <input type="text" class="form-control" id="customerPhone" placeholder="Enter phone number">
           </div>
           <div class="form-group">
             <label for="customerEmail">Email</label>
@@ -36,7 +35,7 @@
       </div>
     </div>
     <div class="mt-2 col-md-12">
-      <table class="table table-bordered">
+      <table id="customersTable" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">customerID</th>
@@ -56,8 +55,6 @@
             <td>{{this.customerPhone}}</td>
             <td>{{this.customerEmail}}</td>
             <td>{{this.customerZIP}}</td>
-            <td><button type="button" class="btn btn-primary">update</button></td>
-            <td><button type="button" class="btn btn-primary">delete</button></td>
           </tr>
           {{/each}}
 

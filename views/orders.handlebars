@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-body">
 
-        <form>
+        <form id="orderForm">
           <h5>Add new order</h5>
           <div class="form-group">
             <label for="employeeID">Employee ID</label>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="mt-2 col-md-12">
-      <table class="table table-bordered">
+      <table id="ordersTable" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">orderID</th>
@@ -52,7 +52,8 @@
             <td>{{this.customerID}}</td>
             <td>{{this.orderDate}}</td>
             <td>{{this.orderPrice}}</td>
-            <td><a href="./productorders"><button type="button" class="btn btn-primary">edit products</button></a></td>
+            <td><a href="./productorders"><button type="button" class="btn btn-primary editButton">edit
+                  products</button></a></td>
           </tr>
           {{/each}}
 

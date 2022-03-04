@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-body">
 
-        <form>
+        <form id="productForm">
           <h5>Add new product</h5>
           <div class="form-group">
             <label for="productName">Product Name</label>
@@ -19,7 +19,7 @@
             <input type="text" class="form-control" id="productCalorie" placeholder="Enter product calorie">
           </div>
           <div class="form-group">
-            <label for="productCategory">Product Category</label>
+            <label for="productCategory">Product Category ID</label>
             <input type="text" class="form-control" id="productCategory" placeholder="Enter product category">
           </div>
 
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="mt-2 col-md-12">
-      <table class="table table-bordered">
+      <table id="productsTable" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">productID</th>
