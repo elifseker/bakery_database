@@ -71,10 +71,6 @@ app.get('/productcategories', function (req, res, next) {
     })
 });
 
-app.get('/productorders', function (req, res, next) {
-    res.render('productorders');
-});
-
 //insert
 app.post('/employees', function (req, res, next) {
     let employeeFName = req.body["employeeFName"];
@@ -190,6 +186,27 @@ app.post('/productcategories', function (req, res, next) {
         res.json(responseData);
     })
 });
+
+// edit products -- productorders page
+app.get('/productorders', function (req, res, next) {
+    let orderID = req.query["orderID"];
+    let selectString = "SELECT productOrders.productID, products.productName FROM productOrders LEFT JOIN products ON productOrders.productID = products.productID WHERE productOrders.orderID = ? ";
+    let selecttParams = [orderID];
+    mysql.pool.query(selectString, selecttParams, function (err, rows, fields) {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.render('productorders', {
+            "orderID": orderID,
+            "rows": rows
+        });
+    })
+});
+
+// remove product
+
+
 
 
 app.listen(app.get('port'), function () {

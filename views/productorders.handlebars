@@ -2,24 +2,24 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h4>Products in order #12345:</h4>
+        <h4>Products in order #{{orderID}}:</h4>
         <div class="mt-2 col-md-12">
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th scope="col">productID</th>
                 <th scope="col">productName</th>
                 <th scope="col">remove product</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Bagel</th>
-                <td><button type="button" class="btn btn-primary">remove product</button></td>
+              {{#each rows}}
+              <tr data-id="{{this.productID}}">
+                <td>{{this.productID}}</td>
+                <td>{{this.productName}}</td>
+                <td><button type="button" class="btn btn-primary removeButton">remove product</button></td>
               </tr>
-              <tr>
-                <th scope="row">Water</th>
-                <td><button type="button" class="btn btn-primary">remove product</button></td>
-              </tr>
+              {{/each}}
 
             </tbody>
           </table>

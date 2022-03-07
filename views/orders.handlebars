@@ -52,7 +52,8 @@
             <td>{{this.customerID}}</td>
             <td>{{this.orderDate}}</td>
             <td>{{this.orderPrice}}</td>
-            <td><a href="./productorders"><button type="button" class="btn btn-primary editButton">edit
+            <td><a href="./productorders?orderID={{this.orderID}}"><button type="button"
+                  class="btn btn-primary editButton">edit
                   products</button></a></td>
           </tr>
           {{/each}}
