@@ -71,6 +71,23 @@ app.get('/productcategories', function (req, res, next) {
     })
 });
 
+// edit products -- productorders page
+app.get('/productorders', function (req, res, next) {
+    let orderID = req.query["orderID"];
+    let selectString = "SELECT productOrders.productID, products.productName FROM productOrders LEFT JOIN products ON productOrders.productID = products.productID WHERE productOrders.orderID = ? ";
+    let selecttParams = [orderID];
+    mysql.pool.query(selectString, selecttParams, function (err, rows, fields) {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.render('productorders', {
+            "orderID": orderID,
+            "rows": rows
+        });
+    })
+});
+
 //insert
 app.post('/employees', function (req, res, next) {
     let employeeFName = req.body["employeeFName"];
@@ -187,27 +204,41 @@ app.post('/productcategories', function (req, res, next) {
     })
 });
 
-// edit products -- productorders page
-app.get('/productorders', function (req, res, next) {
-    let orderID = req.query["orderID"];
-    let selectString = "SELECT productOrders.productID, products.productName FROM productOrders LEFT JOIN products ON productOrders.productID = products.productID WHERE productOrders.orderID = ? ";
-    let selecttParams = [orderID];
-    mysql.pool.query(selectString, selecttParams, function (err, rows, fields) {
+// search product
+
+
+// remove product
+app.delete('/productorders', function (req, res, next) {
+    let productID = req.body["productID"]
+    let selectString = "DELETE FROM productOrders WHERE productID = ?"
+    let selectParams = [productID]
+    mysql.pool.query(selectString, selectParams, function (err, result) {
         if (err) {
             next(err);
             return;
         }
-        res.render('productorders', {
-            "orderID": orderID,
-            "rows": rows
-        });
-    })
+        let responseData = { "deleted rows": result.affectedRows };
+        res.json(responseData);
+
+    });
 });
 
-// remove product
+// update employee
+// delete employee
+app.delete('/employees', function (req, res, next) {
+    let employeeID = req.body["employeeID"]
+    let selectString = "DELETE FROM employees WHERE employeeID = ?"
+    let selectParams = [employeeID]
+    mysql.pool.query(selectString, selectParams, function (err, result) {
+        if (err) {
+            next(err);
+            return;
+        }
+        let responseData = { "deleted rows": result.affectedRows };
+        res.json(responseData);
 
-
-
+    });
+});
 
 app.listen(app.get('port'), function () {
     console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');

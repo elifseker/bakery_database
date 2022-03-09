@@ -4,7 +4,7 @@
       <div class="card-body">
         <h4>Products in order #{{orderID}}:</h4>
         <div class="mt-2 col-md-12">
-          <table class="table table-bordered">
+          <table id="productsInOrderTable" class="table table-bordered">
             <thead>
               <tr>
                 <th scope="col">productID</th>
@@ -25,18 +25,33 @@
           </table>
         </div>
         <div>
-          <h5>Search new product to add order:</h5>
+          <h5>Search new product to add this order:</h5>
         </div>
-        <div class="input-group mb-3">
+        <form id="searchProductForm">
+          <div class="input-group mb-3">
 
-          <input type="search" class="form-control" placeholder="Enter product name" aria-label="enter product name">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">search</button>
+            <input type="text" id="searchProduct" class="form-control" placeholder="Enter product name"
+              aria-label="enter product name">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary">search</button>
+            </div>
           </div>
-        </div>
+        </form>
+        <div class="mt-2 col-md-12">
+          <table id="searchProductForm" class="table table-bordered">
+            <tbody>
+              {{#each results}}
+              <tr data-id="{{this.productID}}">
+                <td>{{this.productID}}</td>
+                <td>{{this.productName}}</td>
+                <td><button type="button" class="btn btn-primary addButton">add product to the order</button></td>
+              </tr>
+              {{/each}}
 
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>

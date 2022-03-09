@@ -64,3 +64,29 @@ const addRowEmployeesTable = (inputList, employeeID) => {
     updateButton.addEventListener('click', updateClick);
     deleteButton.addEventListener('click', deleteClick);
 }
+
+//delete employee
+const deleteClick = function () {
+    let rowEl = this.parentElement.parentElement;
+    let employeeID = rowEl.dataset.id;
+
+    let req = new XMLHttpRequest();
+    let payload = { "employeeID": employeeID };
+
+    req.open('DELETE', '/employees', true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.addEventListener('load', function () {
+        if (req.status >= 200 && req.status < 400) {
+            rowEl.remove();
+            console.log("deleted the employee!");
+        } else {
+            alert("failed to delete the employee!");
+        }
+    });
+    req.send(JSON.stringify(payload));
+}
+
+const deleteButtonList = document.querySelectorAll('.deleteButton');
+for (i = 0; i < deleteButtonList.length; i++) {
+    deleteButtonList[i].addEventListener("click", deleteClick);
+}
