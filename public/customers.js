@@ -40,7 +40,7 @@ newCustomerForm.addEventListener('submit', function (e) {
 
 //add new entry to customer table
 const addRowCustomersTable = (customerInputList, customerID) => {
-    const table = document.querySelector('#customersTable');
+    const table = document.getElementById('customersTable').getElementsByTagName('tbody')[0];
     const newRow = document.createElement('tr');
     newRow.setAttribute("data-id", customerID);
     table.append(newRow);

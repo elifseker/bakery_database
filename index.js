@@ -2,7 +2,6 @@ let express = require('express');
 let handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
 let bodyParser = require('body-parser');
 let mysql = require('./dbcon.js');
-//let dateFormat = require("dateformat");
 
 let app = express();
 app.use(express.static('public'));

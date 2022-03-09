@@ -38,7 +38,7 @@ newEmployeeForm.addEventListener('submit', function (e) {
 
 //add new entry to employees table
 const addRowEmployeesTable = (inputList, employeeID) => {
-    const table = document.querySelector('#employeesTable');
+    const table = document.getElementById('employeesTable').getElementsByTagName('tbody')[0];
     const newRow = document.createElement('tr');
     newRow.setAttribute("data-id", employeeID);
     table.append(newRow);
@@ -51,16 +51,18 @@ const addRowEmployeesTable = (inputList, employeeID) => {
         newCell.append(inputList[i]);
         newRow.append(newCell);
     }
-    let newButtonCell = document.createElement('td');
+    let newUpdateButtonCell = document.createElement('td');
+    let newDeleteButtonCell = document.createElement('td');
     let updateButton = document.createElement('button');
     updateButton.append("update");
     updateButton.setAttribute("class", "btn btn-primary updateButton");
     let deleteButton = document.createElement('button');
     deleteButton.append("delete");
     deleteButton.setAttribute("class", "btn btn-primary deleteButton");
-    newButtonCell.append(updateButton);
-    newButtonCell.append(deleteButton);
-    newRow.append(newButtonCell);
+    newUpdateButtonCell.append(updateButton);
+    newDeleteButtonCell.append(deleteButton);
+    newRow.append(newUpdateButtonCell);
+    newRow.append(newDeleteButtonCell);
     updateButton.addEventListener('click', updateClick);
     deleteButton.addEventListener('click', deleteClick);
 }

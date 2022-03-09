@@ -38,7 +38,7 @@ newProductForm.addEventListener('submit', function (e) {
 
 //add new entry to customer table
 const addRowProductsTable = (productInputList, productID) => {
-    const table = document.querySelector('#productsTable');
+    const table = document.getElementById('productsTable').getElementsByTagName('tbody')[0];
     const newRow = document.createElement('tr');
     newRow.setAttribute("data-id", productID);
     table.append(newRow);

@@ -38,23 +38,25 @@ newOrderForm.addEventListener('submit', function (e) {
 
 //add new entry to customer table
 const addRowOrdersTable = (orderInputList, orderID) => {
-    const table = document.querySelector('#ordersTable');
+    const table = document.getElementById('ordersTable').getElementsByTagName('tbody')[0];
     const newRow = document.createElement('tr');
     newRow.setAttribute("data-id", orderID);
     table.append(newRow);
     let newCell = document.createElement('td');
     newCell.append(orderID);
     newRow.append(newCell);
+
     for (i = 0; i < orderInputList.length; i++) {
         let newCell = document.createElement('td');
         newCell.append(orderInputList[i]);
         newRow.append(newCell);
     }
+
     let newButtonCell = document.createElement('td');
     let editButton = document.createElement('button');
     editButton.append("edit products");
     editButton.setAttribute("class", "btn btn-primary editButton");
     newButtonCell.append(editButton);
     newRow.append(newButtonCell);
-    editButton.addEventListener('click', editClick);
+    //editButton.addEventListener('click', editClick);
 }

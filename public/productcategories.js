@@ -35,7 +35,7 @@ newProductCategoryForm.addEventListener('submit', function (e) {
 
 //add new entry to product category table
 const addRowProductCategoriesTable = (categoryInput, categoryID) => {
-    const table = document.querySelector('#productCategoriesTable');
+    const table = document.getElementById('productCategoriesTable').getElementsByTagName('tbody')[0];
     const newRow = document.createElement('tr');
     newRow.setAttribute("data-id", categoryID);
     table.append(newRow);
