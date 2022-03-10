@@ -29,7 +29,6 @@
         </div>
         <form id="searchProductForm">
           <div class="input-group mb-3">
-
             <input type="text" id="searchProduct" class="form-control" placeholder="Enter product name"
               aria-label="enter product name">
             <div class="input-group-append">
@@ -38,16 +37,8 @@
           </div>
         </form>
         <div class="mt-2 col-md-12">
-          <table id="searchProductForm" class="table table-bordered">
+          <table id="searchProductTable" class="table table-bordered">
             <tbody>
-              {{#each results}}
-              <tr data-id="{{this.productID}}">
-                <td>{{this.productID}}</td>
-                <td>{{this.productName}}</td>
-                <td><button type="button" class="btn btn-primary addButton">add product to the order</button></td>
-              </tr>
-              {{/each}}
-
             </tbody>
           </table>
         </div>

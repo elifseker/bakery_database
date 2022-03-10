@@ -204,6 +204,29 @@ app.post('/productcategories', function (req, res, next) {
 });
 
 // search product
+app.get('/productsearch', function (req, res, next) {
+    let searchQuery = req.query["searchQuery"];
+
+    if (!searchQuery) {
+        res.status(400);
+        res.json({ 'error': 'Product name is required' });
+        res.send();
+        return;
+    }
+    let insertString = "SELECT productID, productName from products where productName = ?";
+    let insertParams = [searchQuery];
+    mysql.pool.query(insertString, insertParams, function (err, result) {
+        if (err) {
+            next(err);
+            console.log("error!")
+            return;
+        }
+
+        let responseData = Object.values(JSON.parse(JSON.stringify(result)));
+        console.log(responseData);
+        res.json(responseData);
+    })
+});
 
 
 // remove product
@@ -223,6 +246,7 @@ app.delete('/productorders', function (req, res, next) {
 });
 
 // update employee
+
 // delete employee
 app.delete('/employees', function (req, res, next) {
     let employeeID = req.body["employeeID"]
