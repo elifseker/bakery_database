@@ -86,6 +86,19 @@ app.get('/productorders', function (req, res, next) {
         });
     })
 });
+// update employee
+app.put('/employees', function (req, res, next) {
+    mysql.pool.query("UPDATE employees SET employeeFName=?, employeeLName=?, employeePhone=?, employeeManager=? WHERE employeeID=? ",
+        [req.body.employeeFName, req.body.employeeLName, req.body.employeePhone, req.body.employeeManager, req.body.employeeID],
+        function (err, result) {
+            if (err) {
+                next(err);
+                return;
+            }
+            let responseData = { "updated rows": result.changedRows };
+            res.json(responseData);
+        });
+});
 
 //insert
 app.post('/employees', function (req, res, next) {
@@ -229,6 +242,7 @@ app.get('/productsearch', function (req, res, next) {
 });
 
 
+
 // remove product
 app.delete('/productorders', function (req, res, next) {
     let productID = req.body["productID"]
@@ -244,8 +258,6 @@ app.delete('/productorders', function (req, res, next) {
 
     });
 });
-
-// update employee
 
 // delete employee
 app.delete('/employees', function (req, res, next) {
