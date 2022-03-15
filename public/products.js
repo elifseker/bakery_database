@@ -1,5 +1,4 @@
 //submit new product form
-
 const newProductForm = document.querySelector('#productForm');
 
 newProductForm.addEventListener('submit', function (e) {

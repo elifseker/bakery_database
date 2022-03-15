@@ -14,7 +14,7 @@
             </thead>
             <tbody>
               {{#each rows}}
-              <tr data-id="{{this.productID}}">
+              <tr data-orderid="{{this.orderID}}" data-id="{{this.productID}}">
                 <td>{{this.productID}}</td>
                 <td>{{this.productName}}</td>
                 <td><button type="button" class="btn btn-primary removeButton">remove product</button></td>
@@ -37,7 +37,7 @@
           </div>
         </form>
         <div class="mt-2 col-md-12">
-          <table id="searchProductTable" class="table table-bordered">
+          <table id="searchProductTable" data-orderid="{{this.orderID}}" class="table table-bordered">
             <tbody>
             </tbody>
           </table>

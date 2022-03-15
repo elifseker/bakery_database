@@ -36,7 +36,7 @@ newOrderForm.addEventListener('submit', function (e) {
     req.send(JSON.stringify(payload));
 })
 
-//add new entry to customer table
+//add new entry to orders table
 const addRowOrdersTable = (orderInputList, orderID) => {
     const table = document.getElementById('ordersTable').getElementsByTagName('tbody')[0];
     const newRow = document.createElement('tr');
